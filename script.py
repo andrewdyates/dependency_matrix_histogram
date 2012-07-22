@@ -2,6 +2,7 @@
 from __future__ import division
 from __init__ import *
 import numpy as np
+import sys
 
 def main(npy_fname=None, absvalue=False):
   M = np.load(npy_fname)
@@ -20,3 +21,5 @@ def main(npy_fname=None, absvalue=False):
   # plot histogram
   # graph density
   
+if __name__ == "__main__":
+  main(**dict([s.split('=') for s in sys.argv[1:]]))

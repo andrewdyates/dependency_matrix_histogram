@@ -2,7 +2,7 @@
 import numpy as np
 
 
-STEP = "0.5"
+STEP = 0.5
 
 def histogram(M):
   """Generate histogram for dependency matrix."""

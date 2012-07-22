@@ -27,7 +27,7 @@ def main(npy_fname=None, absvalue=False):
   # 1 Threshold dependency matrix
   # 2 remove rows and columns (nodes) with no edges. Report this.
   # 3 compute average, min, max, and std row and column degree
-  print "\t".join("threshold", "n_col_conn", "n_row_conn", "col_avg_degree", "col_avg_degree_all", "row_avg_degree", "row_avg_degree_all", "avg_degree", "avg_degree_all")
+  print "\t".join(("threshold", "n_col_conn", "n_row_conn", "col_avg_degree", "col_avg_degree_all", "row_avg_degree", "row_avg_degree_all", "avg_degree", "avg_degree_all"))
   for i in xrange(len(counts)):
     threshold = bins[i]
     G = M >= threshold

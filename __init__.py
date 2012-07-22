@@ -12,7 +12,7 @@ def histogram(M):
     bins = np.arange(-1, 1+STEP, STEP)
   else:
     bins = np.arange(0, 1+STEP, STEP)
-  return np.hist(M, bins=bins)
+  return np.histogram(M, bins=bins)
 
 
   

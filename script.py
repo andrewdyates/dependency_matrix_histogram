@@ -10,14 +10,17 @@ def main(npy_fname=None, absvalue=False):
   if absvalue:
     M = np.abs(M)
   counts, bins = histogram(M)
-  print "Distribution for %s (abs=%s)" % (npy_fname, absvalue)
+  print "Value Distribution for %s (abs=%s)" % (npy_fname, absvalue)
+  print "Min: %.3f Max: %.3f Num Values: %d (%d by %d)" % \
+    (M.min(), M.max(), np.size(M.ravel()), np.size(M,0), np.size(M,1))
+  print "\t".join(['bin', 'count', 'density', 'accumulation'])
   cumm = 0
   total = np.sum(counts)
   # histogram print
-  for i in xrange(len(bins)):
+  for i in xrange(len(counts)):
     frac = counts[i] / total
     cumm += frac
-    print bins[i], counts[i], frac, cumm
+    print "%.2f\t%d\t%.4f\t%.4f" % (bins[i], counts[i], frac, cumm)
   # plot histogram
   # graph density
   

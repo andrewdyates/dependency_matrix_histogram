@@ -4,12 +4,13 @@ from __init__ import *
 import numpy as np
 import sys
 
-def main(npy_fname=None, absvalue=False):
+def main(npy_fname=None, absvalue=False, step=0.05):
   M = np.load(npy_fname)
+  step = float(step)
   assert np.count_nonzero(np.isnan(M)) == 0
   if absvalue:
     M = np.abs(M)
-  counts, bins = histogram(M)
+  counts, bins = histogram(M, step=step)
   print "#Value Distribution for %s (abs=%s)" % (npy_fname, absvalue)
   print "#Min: %.3f Max: %.3f Num Values: %d (%d by %d)" % \
     (M.min(), M.max(), np.size(M.ravel()), np.size(M,0), np.size(M,1))

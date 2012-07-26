@@ -1,4 +1,9 @@
-"""Print histogram for a matrix to STDOUT"""
+"""Print histogram for a matrix to STDOUT
+
+EXAMPLE USE:
+
+python $HOME/compile_dependency_reports2/script.py npy_fname=$HOME/gse15745/gse15745_gpl6104_gpl8490_spearman.values.npy absvalue=True step=0.05
+"""
 from __future__ import division
 from __init__ import *
 import numpy as np
@@ -21,7 +26,7 @@ def main(npy_fname=None, absvalue=False, step=0.05):
   for i in xrange(len(counts)):
     frac = counts[i] / total
     cumm += frac
-    print "%.2f\t%d\t%.6f\t%.6f\t%.6f" % (bins[i], counts[i], frac, cumm, 1-cumm)
+    print "%.4f\t%d\t%.6f\t%.6f\t%.6f" % (bins[i], counts[i], frac, cumm, 1-cumm)
 
   # GRAPH DENSITY
   # for each threshold

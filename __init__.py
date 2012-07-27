@@ -3,7 +3,7 @@ import numpy as np
 
 STEP = 0.05
 
-def remove_nans(M)
+def remove_nans(M):
   NANS = np.isnan(M)
   if np.count_nonzero(NANS) > 0:
     print "WARNING: %d 'nan' exist in dependency matrix. Filtering..."
@@ -17,7 +17,6 @@ def remove_nans(M)
 def text_histogram(M, step=STEP):
   """Cannot handle masked arrays; compress or remove NANs first."""
   counts, bins = histogram(M, step=step)
-  print "#Value Distribution for %s (abs=%s)" % (npy_fname, absvalue)
   print "#Min: %.3f Max: %.3f Num Values: %d (%d by %d)" % \
     (M.min(), M.max(), np.size(M.ravel()), np.size(M,0), np.size(M,1))
   print "\t".join(['bin', 'count', 'density', 'accumulation', '1-accumulation'])
@@ -31,7 +30,7 @@ def text_histogram(M, step=STEP):
   return bins, counts
 
 
-def print_degrees(M, bins, counts, step=STEP):
+def print_degrees(M, bins, counts):
   """M must be a rectangular matrix"""
   # GRAPH DENSITY
   # for each threshold

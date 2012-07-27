@@ -1,4 +1,4 @@
-
+#!/usr/bin/python
 """Print histogram for a matrix to STDOUT
 
 EXAMPLE USE:
@@ -16,8 +16,9 @@ def main(npy_fname=None, absvalue=False, step=0.05):
   if absvalue:
     M = np.abs(M)
   Q = remove_nans(M)
+  print "#Value Distribution for %s (abs=%s)" % (npy_fname, absvalue)
   bins, counts = text_histogram(Q, step=step)
-  print_degrees(M, bins, counts, step=step)
+  print_degrees(M, bins, counts)
 
 
   

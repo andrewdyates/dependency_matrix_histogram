@@ -1,3 +1,4 @@
+
 """Print histogram for a matrix to STDOUT
 
 EXAMPLE USE:
@@ -12,21 +13,10 @@ import sys
 def main(npy_fname=None, absvalue=False, step=0.05):
   M = np.load(npy_fname)
   step = float(step)
-  assert np.count_nonzero(np.isnan(M)) == 0
+  M = remove_nans(M)
   if absvalue:
     M = np.abs(M)
-  counts, bins = histogram(M, step=step)
-  print "#Value Distribution for %s (abs=%s)" % (npy_fname, absvalue)
-  print "#Min: %.3f Max: %.3f Num Values: %d (%d by %d)" % \
-    (M.min(), M.max(), np.size(M.ravel()), np.size(M,0), np.size(M,1))
-  print "\t".join(['bin', 'count', 'density', 'accumulation', '1-accumulation'])
-  cumm = 0
-  total = np.sum(counts)
-  # histogram print
-  for i in xrange(len(counts)):
-    frac = counts[i] / total
-    cumm += frac
-    print "%.4f\t%d\t%.6f\t%.6f\t%.6f" % (bins[i], counts[i], frac, cumm, 1-cumm)
+  text_histogram(M, step=STEP)
 
   # GRAPH DENSITY
   # for each threshold

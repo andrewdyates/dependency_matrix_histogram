@@ -3,7 +3,7 @@
 
 EXAMPLE USE:
 
-python $HOME/compile_dependency_reports2/script.py npy_fname=$HOME/gse15745/gse15745_gpl6104_gpl8490_spearman.values.npy absvalue=True step=0.05
+python $HOME/dependency_matrix_histogram/script.py npy_fname=$HOME/gse15745/gse15745_gpl6104_gpl8490_spearman.values.npy absvalue=True step=0.05
 """
 from __future__ import division
 from __init__ import *
